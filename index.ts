@@ -21,6 +21,7 @@ const server = Bun.serve({
 
   async fetch(req) {
     let path = new URL(req.url).pathname;
+    console.log(path);
     // Default to index.html if the root is requested
     if (path === '/') {
       path = '/' + DEFAULT_FILE;
