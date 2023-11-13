@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="lofi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate MAO Calculator</title>
+    <link href="./styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="navbar bg-neutral text-neutral-content">
+      <button class="btn btn-ghost text-xl">MAO Calculator</button>
+    </div>
+    <div class="container mx-auto p-8">
+        <form id="mao-form" class="space-y-4">
+            <div>
+                <label for="arv" class="block">After Repair Value (ARV):</label>
+                <input type="number" id="arv" name="arv" class="input input-bordered w-full">
+            </div>
+            <div>
+                <label for="repairs" class="block">Repair Costs:</label>
+                <input type="number" id="repairs" name="repairs" class="input input-bordered w-full">
+            </div>
+            <div>
+                <label for="profit" class="block">Desired Profit Margin (%):</label>
+                <input type="number" id="profit" name="profit" class="input input-bordered w-full">
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate</button>
+        </form>
+      <div class="divider divider-success">Results</div>
+      <div class="card w-full bg-neutral text-neutral-content">
+        <div class="card-body items-center text-center">
+          <h2 class="card-title">Maximum Allowable Offer!</h2>
+          <div id="result" class="mt-8 text-2xl"></div>
+          <!-- <div class="card-actions justify-end">
+            <button class="btn btn-primary">Accept</button>
+            <button class="btn btn-ghost">Deny</button>
+          </div> -->
+        </div>
+      </div>
+        
+    </div>
+    <script src="./main.js"></script>
+</body>
+</html>
