@@ -3,15 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Real Estate Financial Calculators">
+  <meta name="description" content="Access a variety of financial calculators for real estate investors, including Compound Interest and APR calculators.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.yourwebsite.com/">
+  <meta property="og:title" content="Real Estate Financial Calculators">
+  <meta property="og:description" content="Access a variety of financial calculators for real estate investors, including Compound Interest and APR calculators.">
+  <meta property="og:image" content="https://www.yourwebsite.com/images/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.yourwebsite.com/">
+  <meta property="twitter:title" content="Real Estate Financial Calculators">
+  <meta property="twitter:description" content="Access a variety of financial calculators for real estate investors, including Compound Interest and APR calculators.">
+  <meta property="twitter:image" content="https://www.yourwebsite.com/images/twitter-image.jpg">
+
     <title>Real Estate MAO Calculator</title>
     <link href="./styles.css" rel="stylesheet">
 </head>
 <body>
     <div class="navbar bg-neutral text-neutral-content">
-      <button class="btn btn-ghost text-xl">MAO Calculator</button>
+      <button class="btn btn-ghost text-xl">Real Estate Calculators</button>
     </div>
-    <div class="container mx-auto p-8">
-        <form id="mao-form" class="space-y-4">
+    <div class="">
+      <div class="tabs tabs-boxed">
+        <input type="radio" name="my_tabs_2" class="tab" aria-label="MAO Calculator" checked />
+        <div class="tab-content bg-base-100 border-base-300 rounded-box p-10">
+          
+            <form hx-post="/calculate-mao" hx-trigger="submit" hx-target="#mao-result" class="space-y-4">
             <div>
                 <label for="arv" class="block">After Repair Value (ARV):</label>
                 <input type="number" id="arv" name="arv" class="input input-bordered w-full">
@@ -26,19 +48,64 @@
             </div>
             <button type="submit" class="btn btn-primary">Calculate</button>
         </form>
-      <div class="divider divider-success">Results</div>
-      <div class="card w-full bg-neutral text-neutral-content">
-        <div class="card-body items-center text-center">
-          <h2 class="card-title">Maximum Allowable Offer!</h2>
-          <div id="result" class="mt-8 text-2xl"></div>
-          <!-- <div class="card-actions justify-end">
-            <button class="btn btn-primary">Accept</button>
-            <button class="btn btn-ghost">Deny</button>
-          </div> -->
+
+          <div class="divider divider-success">Results</div>
+          <div class="card w-full bg-neutral text-neutral-content">
+            <div class="card-body items-center text-center">
+              <h2 class="card-title">Maximum Allowable Offer!</h2>
+              <div id="mao-result" class="mt-8 text-2xl"></div>
+              <!-- <div class="card-actions justify-end">
+                <button class="btn btn-primary">Accept</button>
+                <button class="btn btn-ghost">Deny</button>
+              </div> -->
+            </div>
+          </div>
+        
         </div>
+
+        <input type="radio" name="my_tabs_2" class="tab" aria-label="Compound Interest Calculator" />
+        <div class="tab-content bg-base-100 border-base-300 rounded-box p-10">
+            <form hx-post="/calculate-compound-interest" hx-trigger="submit" hx-target="#ci-result">
+              <div>
+                  <label for="principal" class="block">Principal Amount:</label>
+                  <input type="number" id="principal" name="principal" class="input input-bordered w-full" required>
+              </div>
+              <div>
+                  <label for="rate" class="block">Annual Interest Rate (%):</label>
+                  <input type="number" id="rate" name="rate" class="input input-bordered w-full" step="0.01" required>
+              </div>
+              <div>
+                  <label for="time" class="block">Time (Years):</label>
+                  <input type="number" id="time" name="time" class="input input-bordered w-full" required>
+              </div>
+              <div>
+                  <label for="compound" class="block">Compounds per Year:</label>
+                  <input type="number" id="compound" name="compound" class="input input-bordered w-full" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Calculate</button>
+          </form>
+
+          <div class="divider divider-success">Results</div>
+          <div class="card w-full bg-neutral text-neutral-content">
+            <div class="card-body items-center text-center">
+              <h2 class="card-title">Future Value!</h2>
+              <div id="ci-result" class="mt-8 text-2xl"></div>
+              <!-- <div class="card-actions justify-end">
+                <button class="btn btn-primary">Accept</button>
+                <button class="btn btn-ghost">Deny</button>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <input type="radio" name="my_tabs_2" class="tab" aria-label="APR Calculator" />
+        <div class="tab-content bg-base-100 border-base-300 rounded-box p-10">Coming Soon!</div>
       </div>
         
+      
+        
     </div>
+    <script src="https://unpkg.com/htmx.org@1.9.8"></script>
     <script src="./main.js"></script>
 </body>
 </html>
