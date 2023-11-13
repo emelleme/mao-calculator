@@ -4,8 +4,8 @@
   "description": "A simple Real Estate MAO Calculator",
   "scripts": {
     "build-css": "tailwindcss -o ./dist/styles.css --minify",
-    "build-html": "cp ./src/index.html ./dist/index.html",
-    "build-js": "cp ./src/main.js ./dist/main.js",
+    "build-html": "cp ./src/*.html ./dist/",
+    "build-js": "cp ./src/*.js ./dist/",
     "build": "mkdir -p dist && npm run build-css && npm run build-html && npm run build-js",
     "dev": "bun run build && bun run index.ts"
   },
