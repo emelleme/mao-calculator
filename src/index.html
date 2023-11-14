@@ -28,8 +28,8 @@
     <div class="navbar bg-neutral text-neutral-content">
       <button class="btn btn-ghost text-xl">Real Estate Calculators</button>
     </div>
-    <div class="">
-      <div class="tabs tabs-lifted">
+    <div class="preview border-base-300 bg-base-100 rounded-b-box rounded-se-box flex min-h-[6rem] min-w-[18rem] max-w-4xl flex-wrap items-center justify-center gap-2 overflow-x-hidden bg-cover bg-top p-4 [border-width:var(--tab-border)] undefined">
+      <div class="tabs tabs-boxed">
         <input type="radio" name="my_tabs_2" class="tab" aria-label="MAO" checked />
         <div class="tab-content bg-base-100 border-base-300 rounded-box p-10">
           
@@ -65,7 +65,7 @@
 
         <input type="radio" name="my_tabs_2" class="tab" aria-label="Compound Interest" />
         <div class="tab-content bg-base-100 border-base-300 rounded-box p-10">
-            <form hx-post="/calculate-compound-interest" hx-trigger="submit" hx-target="#ci-result">
+            <form hx-post="/calculate-compound-interest" hx-trigger="submit" hx-target="#ci-result"  class="space-y-4">
               <div>
                   <label for="principal" class="block">Principal Amount:</label>
                   <input type="number" id="principal" name="principal" class="input input-bordered w-full" required>
