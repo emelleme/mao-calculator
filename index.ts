@@ -17,7 +17,7 @@ const MIME_TYPES = {
 };
 
 const server = Bun.serve({
-  port: 3002,
+  port: 3000,
 
   async fetch(req) {
     let path = new URL(req.url).pathname;
