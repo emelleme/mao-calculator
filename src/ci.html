@@ -7,42 +7,46 @@
     <link href="./styles.css" rel="stylesheet">
 </head>
 <body>
-    <div class="navbar bg-neutral text-neutral-content">
-      <button class="btn btn-ghost text-xl">Compound Interest Calculator</button>
-    </div>
-    <div class="container mx-auto p-8">
-      <form id="interest-form" class="space-y-4">
-          <div>
-              <label for="principal" class="block">Principal Amount:</label>
-              <input type="number" id="principal" name="principal" class="input input-bordered w-full" required>
-          </div>
-          <div>
-              <label for="rate" class="block">Annual Interest Rate (%):</label>
-              <input type="number" id="rate" name="rate" class="input input-bordered w-full" step="0.01" required>
-          </div>
-          <div>
-              <label for="time" class="block">Time (Years):</label>
-              <input type="number" id="time" name="time" class="input input-bordered w-full" required>
-          </div>
-          <div>
-              <label for="compound" class="block">Compounds per Year:</label>
-              <input type="number" id="compound" name="compound" class="input input-bordered w-full" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Calculate</button>
-      </form>
-      <div class="divider divider-success">Results</div>
-      <div class="card w-full bg-neutral text-neutral-content">
-        <div class="card-body items-center text-center">
-          <h2 class="card-title">Future Value!</h2>
-          <div id="result" class="mt-8 text-2xl"></div>
-          <!-- <div class="card-actions justify-end">
-            <button class="btn btn-primary">Accept</button>
-            <button class="btn btn-ghost">Deny</button>
-          </div> -->
-        </div>
-      </div>
+  <div class="navbar bg-neutral text-neutral-content">
+    <button class="btn btn-ghost text-xl">Real Estate Calculators</button>
+  </div>
 
-    </div>
-    <script src="./main.js"></script>
+  <div class="flex flex-col">
+  <ul class="menu menu-horizontal bg-base-200">
+    <li><a href="#" hx-swap="innerHTML" hx-target="#main-content" hx-get="/mao-calculator.html">MAO</a></li>
+    <li><a href="#" hx-swap="innerHTML" hx-target="#main-content" hx-get="/ci-calculator.html">Compound Interest</a></li>
+    <li><a href="#" hx-swap="innerHTML" hx-target="#main-content" hx-get="#apr-calculator">APR</a></li>
+  </ul>
+
+  <div id="main-content" class="flex-grow p-4">
+    <!-- Placeholder for Dynamic Content -->
+</div>
+</div>
+
+<!-- Preloaded Calculator Forms (hidden) -->
+<div id="mao-calculator" class="hidden">
+    <!-- MAO Calculator Form Here -->
+    <p>Coming Soon</p>
+</div>
+<div id="ci-calculator" class="hidden">
+    <!-- Compound Interest Calculator Form Here -->
+</div>
+<div id="apr-calculator" class="hidden">
+    <!-- APR Calculator Form Here -->
+</div>
+
+
+<script type="text/hyperscript">
+  def calculateMAO
+      set arv to Number(document.getElementById('arv').value)
+      set repairs to Number(document.getElementById('repairs').value)
+      set profit to Number(document.getElementById('profit').value)
+      set mao to arv - (arv * (profit / 100)) - repairs
+      return "$" + mao.toFixed(2)
+  end
+</script>
+
+<script src="https://unpkg.com/hyperscript.org/dist/_hyperscript.min.js"></script>
+<script src="https://unpkg.com/htmx.org@1.9.8"></script>
 </body>
 </html>
