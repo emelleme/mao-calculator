@@ -9,4 +9,4 @@ channel = "stable-22_11"
 [deployment]
 build = ["sh", "-c", "mkdir .build && bun run build"]
 deploymentTarget = "static"
-publicDir = "build"
+publicDir = "dist"
