@@ -28,29 +28,6 @@
     </div>
 </div>
 
-<!-- Preloaded Calculator Forms (hidden) -->
-<div id="mao-calculator" class="hidden">
-    <!-- MAO Calculator Form Here -->
-    <p>Coming Soon</p>
-</div>
-<div id="ci-calculator" class="hidden">
-    <!-- Compound Interest Calculator Form Here -->
-</div>
-<div id="apr-calculator" class="hidden">
-    <!-- APR Calculator Form Here -->
-</div>
-
-
-<script type="text/hyperscript">
-  def calculateMAO
-      set arv to Number(document.getElementById('arv').value)
-      set repairs to Number(document.getElementById('repairs').value)
-      set profit to Number(document.getElementById('profit').value)
-      set mao to arv - (arv * (profit / 100)) - repairs
-      return "$" + mao.toFixed(2)
-  end
-</script>
-
 <script src="https://unpkg.com/hyperscript.org/dist/_hyperscript.min.js"></script>
 <script src="https://unpkg.com/htmx.org@1.9.8"></script>
 </body>
