@@ -1,6 +1,8 @@
 import { readFile } from 'fs/promises';
+import { join, extname } from 'path';
 
 const BASE_PATH = './dist';
+const ASSETS_PATH = 'assets'; // Define the assets directory name
 const DEFAULT_FILE = 'index.html';
 const MIME_TYPES = {
   '.html': 'text/html',
@@ -12,7 +14,7 @@ const MIME_TYPES = {
   '.svg': 'image/svg+xml',
   '.ttf': 'font/ttf',
   '.woff': 'font/woff',
-  '.woff2': 'font/woff2'
+  '.woff2': 'font/woff2',
   // Add other MIME types as needed
 };
 
@@ -22,15 +24,16 @@ const server = Bun.serve({
   async fetch(req) {
     let path = new URL(req.url).pathname;
     console.log(path);
+
     // Default to index.html if the root is requested
     if (path === '/') {
       path = '/' + DEFAULT_FILE;
     }
 
-    const filePath = BASE_PATH + path;
+    const filePath = join(BASE_PATH, path);
     try {
       const file = await readFile(filePath);
-      const extension = filePath.substring(filePath.lastIndexOf('.'));
+      const extension = extname(filePath);
       const mimeType = MIME_TYPES[extension] || 'text/plain';
 
       return new Response(file, {
